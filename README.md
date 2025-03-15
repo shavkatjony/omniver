@@ -1,2 +1,4 @@
 # LA
-it is the liner algebra courses for the machine learning
+multifunctional platform for all of you , 
+ai 
+
