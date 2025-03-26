@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial and Double Factorial Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: right;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        /* Dark theme styles */
+        body.dark {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        body.dark header {
+            color: #ecf0f1;
+        }
+
+        body.dark input[type="number"] {
+            background-color: #555;
+            color: #ecf0f1;
+            border: 1px solid #ccc;
+        }
+
+        body.dark button {
+            background-color: #2980b9;
+        }
+
+        body.dark button:hover {
+            background-color: #1f6390;
+        }
+
+        body.dark .result {
+            color: #ecf0f1;
+        }
+
+        body.dark .footer {
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Shavkatjon Yuldashev
+    </header>
+    <h1>Factorial and Double Factorial Calculator</h1>
+    <div class="container">
+        <input type="number" id="number" placeholder="Enter a number" min="0" step="1" required>
+        
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <button onclick="calculateDoubleFactorial()">Calculate Double Factorial</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="footer">
+        Designed by Shavkatjon Yuldashev
+    </div>
+
+    <script>
+        function calculateFactorial() {
+            const number = parseInt(document.getElementById("number").value);
+            if (isNaN(number) || number < 0) {
+                document.getElementById("result").innerText = "Please enter a valid number!";
+                return;
+            }
+            
+            let result = 1;
+            for (let i = 1; i <= number; i++) {
+                result *= i;
+            }
+
+            document.getElementById("result").innerText = `Factorial of ${number} is: ${result}`;
+        }
+
+        function calculateDoubleFactorial() {
+            const number = parseInt(document.getElementById("number").value);
+            if (isNaN(number) || number < 0) {
+                document.getElementById("result").innerText = "Please enter a valid number!";
+                return;
+            }
+
+            let result = 1;
+            if (number % 2 === 0) {
+                for (let i = number; i >= 2; i -= 2) {
+                    result *= i;
+                }
+            } else {
+                for (let i = number; i >= 1; i -= 2) {
+                    result *= i;
+                }
+            }
+
+            document.getElementById("result").innerText = `Double Factorial of ${number} is: ${result}`;
+        }
+    </script>
+</body>
+</html>
